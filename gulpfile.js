@@ -11,7 +11,7 @@ function comprimeImagens(){
     .pipe(gulp.dest('./build/images'))
 }
 
-function comprimeJavaScripit(){
+function comprimeJavaScript(){
     return gulp.src('./source/scripts/*.js')
     .pipe(uglify())
     .pipe(obfuscate())
@@ -31,6 +31,6 @@ function compilaSass(){
 exports.images = comprimeImagens;
 exports.default = function() {
     gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.series(compilaSass));
-    gulp.watch('./source/scripts/*.js', {ignoreInitial: false}, gulp.series(comprimeJavaScripit));
+    gulp.watch('./source/scripts/*.js', {ignoreInitial: false}, gulp.series(comprimeJavaScript));
     gulp.watch('./source/images/*', {ignoreInitial: false}, gulp.series(comprimeImagens));
 }
